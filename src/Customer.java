@@ -21,7 +21,7 @@ public class Customer {
     public String statement() {
         
         Enumeration rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 
@@ -32,9 +32,10 @@ public class Customer {
 
         }
         //add footer lines
-        result +=  "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) +
-                " frequent renter points";
+        result +=  "<P>You owe <EM>" + String.valueOf(getTotalCharge()) + "</EM><P>\n";
+        result += "On this rental you earned <EM>" +
+            String.valueOf(getTotalFrequentRenterPoints()) +
+            "</EM> frequent renter points<P>";
         return result;
     }
 
